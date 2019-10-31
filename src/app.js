@@ -17,13 +17,15 @@ app.use(express.static(publicPath))
 
 app.get('',(req,res)=>{
     res.render('index',{
-        title:'Weather'
+        title:'Weather',
+        baseClass:'active'
     })
 })
 
 app.get('/about',(req,res)=>{
     res.render('about',{
-        title:'About'
+        title:'About',
+        aboutClass:'active'
     })
 })
 

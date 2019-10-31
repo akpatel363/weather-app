@@ -1,14 +1,14 @@
 body{
     color: #333333;
-    font-family: Arial;
+    font-family:  "Poppins";
     margin: 0;
 }
 .main-content{
-    min-height: 500px;
-    height: 90vh;
+    min-height: 100vh;
     max-width: 900px;
     margin: 0 auto;
     padding: 0 15px;
+    padding-bottom: 10px;
 }
 .footer-container{
     background: #222222;
@@ -39,6 +39,9 @@ nav a {
     color: #666666;
     text-decoration: none;
     transition: 0.4s;
+}
+nav .active{
+    text-decoration: underline;
 }
 nav a:hover{
     color: #222222;
@@ -117,6 +120,42 @@ form input{
 
 .about-info{
     margin-top: 50px;
+}
+.about-info *{
+    margin: 0;
+}
+.about-info p{
+    margin-top: 5px;
     font-size: 1.5em;
-    text-align: center;
+}
+.about-info h4{
+    margin-top: 12px;
+    font-size: 1.5em;
+    margin-bottom: 12px;
+}
+.btn{
+    font-size: 20px;
+    line-height: 44px;
+    text-decoration: none;
+    box-sizing: content-box;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+.btn-blue{
+    color: white;
+    background: royalblue;
+}
+.btn-red{
+    color: white;
+    background: firebrick;
+}
+.btn-green{
+    color: white;
+    background: forestgreen;
+}
+.btn-dark{
+    color: white;
+    background: #333333;
 }
