@@ -29,6 +29,13 @@ app.get('/about',(req,res)=>{
     })
 })
 
+app.get('/favourites',(req,res)=>{
+    res.render('favourites',{
+        title:'Favourites',
+        favouritesClass:'active'
+    })
+})
+
 app.get('/weather',(req,res)=>{
     if(!req.query.search){
         return res.send({
@@ -50,6 +57,13 @@ app.get('/weather',(req,res)=>{
         })
     })
 })
+
+app.get('*',(req,res)=>{
+    res.render('error',{
+        title:'Page Not Found'
+    })
+})
+
 app.listen(port,()=>{
     console.log("Server up And running on port ",port)
 })
