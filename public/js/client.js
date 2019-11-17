@@ -5,6 +5,9 @@ let submitButton = document.querySelector('button')
 let placeDetails = document.querySelector('#location-name')
 let forecast = document.querySelector('#weather-details')
 let favicon = document.querySelector('i')
+let errorMessage = document.querySelector('.error-message')
+let message = document.querySelector('.message')
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     getWeatherDetails(inputField.value)
@@ -12,6 +15,10 @@ form.addEventListener('submit', (e) => {
     placeDetails.innerHTML = ''
     forecast.innerHTML = ''
     favicon.className = ''
+    if(!errorMessage.classList.contains('invisible'))
+    {
+        errorMessage.classList.add('invisible')
+    }
 })
 
 function toggleUIElements() {
@@ -25,13 +32,18 @@ function getWeatherDetails(query) {
         response.json().then((value) => {
             toggleUIElements()
             if (value.error) {
-                forecast.innerHTML = value.error
+                message.innerHTML = value.error
+                errorMessage.classList.toggle('invisible')
                 return
             }
             placeDetails.innerHTML = value.name
             forecast.innerHTML = value.forecast
             favicon.className = "fav-icon fa fa-heart-o"
         })
+    }).catch(error=>{
+        toggleUIElements()
+        message.innerHTML = error['message']
+        errorMessage.classList.toggle('invisible')
     })
 }
 
