@@ -131,6 +131,7 @@ form input{
 .about-info p{
     margin-top: 5px;
     font-size: 1.5em;
+    text-align: justify;
 }
 .about-info h4{
     margin-top: 12px;
