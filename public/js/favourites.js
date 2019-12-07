@@ -19,7 +19,7 @@ async function addItem(index) {
     var closeIcon = document.createElement('i')
     closeIcon.className = 'fa fa-times close-icon'
     closeIcon.addEventListener('click', () => {
-        deleteData(index)
+        deleteData(item)
         card.remove()
     })
     card.appendChild(closeIcon)
@@ -56,8 +56,8 @@ async function getWeatherDetails(textElement, location) {
         return "Unable to connect to server. Please check your internet connection."
     }
 }
-function deleteData(index) {
-    favourites.splice(index - 1, 1)
+function deleteData(item) {
+    favourites.splice(favourites.indexOf(item), 1)
     localStorage.setItem('favourites', JSON.stringify(favourites))
     if (favourites.length == 0) {
         displayNoItems()
